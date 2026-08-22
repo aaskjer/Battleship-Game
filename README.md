@@ -113,7 +113,7 @@ A self-contained browser source that renders the battle live, installed automati
 - Two grids side by side: **your fleet** drawn in full, and **enemy waters** fogged until something is hit.
 - Showing your own ships gives nothing away — the Admiral reads neither chat nor the overlay.
 - Miss pegs, impact bursts, revealed silhouettes for sunk ships, and a marker on the square that was just hit.
-- Fleet roster under each board with per-ship damage pips and struck-through sinkings.
+- Fleet roster under each board with per-ship damage pips and struck-through sinkings, each side toggled on its own. Hiding one keeps the two boards level rather than shunting one up.
 - Countdown ring that turns amber and then pulsing red at the same moments chat gets its warnings.
 - Running points total and live accuracy, then a result badge that holds and fades.
 - Scale, font scale, every colour, and per-element toggles are configurable from the OBS Overlay tab.
@@ -125,12 +125,10 @@ A self-contained browser source that renders the battle live, installed automati
 ## 🏆 Leaderboard
 
 `!ballstats` ranks players on **net** by default — everything won minus everything lost — which is the honest measure now that losing ships costs points. Also rankable by points won, ships sunk, or accuracy (which requires at least 25 shots to qualify, so one lucky shot is not a record).
-
 🥇🥈🥉 medals for the top three, configurable to 1–10 places, with optional hiding of the broadcaster and bot account matched by user id so a name change can't put them back on the board.
-
 `!bstats` reports a player's own record — battles, win rate, accuracy, ships sunk and lost, flawless victories, fewest-shots win, streaks and net. Pass a name to look up someone else.
-
 Leaderboards can be reset on demand from the settings window, or automatically **weekly or monthly** for running seasons — either the running totals only, or every statistic.
+
 
 ---
 
