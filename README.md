@@ -154,6 +154,8 @@ Leaderboards can be reset on demand from the settings window, or automatically *
 
 [aaskjer on Twitch](https://twitch.tv/aaskjer)
 
+[aaskjer.github.io](https://aaskjer.github.io/) 
+
 [Battleship-Game on SB Discord]()
 
 [Streamer.bot](https://streamer.bot) / [nate1280](https://www.patreon.com/c/nate1280/home)
