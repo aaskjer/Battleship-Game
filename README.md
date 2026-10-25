@@ -1,13 +1,18 @@
 
 <p align="center"><img src="https://github.com/aaskjer/Battleship-Game/blob/main/Assets/logo_full.png?raw=true" alt="Battleship banner" width="400" height="400"></p>
 
-Battleship Game is a chat game built for streamer.bot, supporting twitch, kick, and youtube.
+<p align="center">Battleship Game is a chat game built for streamer.bot, supporting twitch, kick, and youtube.</p>
 
-![Static Badge](https://img.shields.io/badge/https%3A%2F%2Fimg.shields.io%2Fbadge%2Fany_text-Twitch%2C_Kick%2C_YouTube-white?label=supported%20plattform)
-![Static Badge](https://img.shields.io/badge/https%3A%2F%2Fimg.shields.io%2Fbadge%2Fany_text-streamer.bot-white?label=tool&color=%230b73ff)
-![GitHub License](https://img.shields.io/github/license/aaskjer/Battleship-Game)
-![GitHub Release](https://img.shields.io/github/v/release/aaskjer/Battleship-Game)
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/aaskjer/Battleship-Game/total)
+<p align="center">
+  <img alt="Platform:" src="https://img.shields.io/badge/https%3A%2F%2Fimg.shields.io%2Fbadge%2Fany_text-Twitch%2C_Kick%2C_YouTube-white?label=supported%20plattform">
+  <img alt="tool: streamer.bot" src="https://img.shields.io/badge/tool-streamer.bot-0b73ff">
+  <a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow"></a>
+  </p>
+  <p align="center">
+  <img alt="Latest stable release" src="https://img.shields.io/github/v/release/aaskjer/Battleship-Game?label=stable">
+  <img alt="Total downloads" src="https://img.shields.io/github/downloads/aaskjer/Battleship-Game/total">
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/aaskjer/Battleship-Game">
+</p>
 
 ---
 
