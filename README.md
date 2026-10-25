@@ -1,163 +1,184 @@
+<p align="center">
+  <img src="https://github.com/aaskjer/Battleship-Game/blob/main/Assets/logo_full.png?raw=true" alt="Battleship Game" width="260" height="260">
+</p>
 
-<p align="center"><img src="https://github.com/aaskjer/Battleship-Game/blob/main/Assets/logo_full.png?raw=true" alt="Battleship banner" width="400" height="400"></p>
+<h1 align="center">Battleship Game</h1>
 
-Battleship Game is a chat game built for streamer.bot, supporting twitch, kick, and youtube.
+<p align="center">
+  <b>Your chat plays Battleship against a CPU admiral — live on stream.</b><br>
+  A chat and overlay game for <a href="https://streamer.bot">Streamer.bot</a> and OBS, on Twitch, YouTube and Kick.
+</p>
 
-![Static Badge](https://img.shields.io/badge/https%3A%2F%2Fimg.shields.io%2Fbadge%2Fany_text-Twitch%2C_Kick%2C_YouTube-white?label=supported%20plattform)
-![Static Badge](https://img.shields.io/badge/https%3A%2F%2Fimg.shields.io%2Fbadge%2Fany_text-streamer.bot-white?label=tool&color=%230b73ff)
-![GitHub License](https://img.shields.io/github/license/aaskjer/Battleship-Game)
-![GitHub Release](https://img.shields.io/github/v/release/aaskjer/Battleship-Game)
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/aaskjer/Battleship-Game/total)
+<p align="center">
+  <a href="https://github.com/aaskjer/Battleship-Game/releases"><img src="https://img.shields.io/github/v/release/aaskjer/Battleship-Game?label=release&color=2563eb" alt="Release"></a>
+  <a href="https://github.com/aaskjer/Battleship-Game/releases"><img src="https://img.shields.io/github/downloads/aaskjer/Battleship-Game/total?color=16a34a" alt="Downloads"></a>
+  <img src="https://img.shields.io/badge/platforms-Twitch%20%7C%20YouTube%20%7C%20Kick-9146FF" alt="Twitch, YouTube, Kick">
+  <img src="https://img.shields.io/badge/Streamer.bot-1.0%2B-0B72FF" alt="Streamer.bot 1.0+">
+  <a href="https://github.com/aaskjer/Battleship-Game/blob/main/LICENSE"><img src="https://img.shields.io/github/license/aaskjer/Battleship-Game?color=64748b" alt="License"></a>
+</p>
 
----
+<p align="center">
+  <a href="https://github.com/aaskjer/Battleship-Game/releases"><b>⬇️ Download</b></a> ·
+  <a href="https://github.com/aaskjer/Battleship-Game/blob/main/Import-String.md"><b>📋 Import string</b></a> ·
+  <a href="https://github.com/aaskjer/Battleship-Game/blob/main/Setup-Guide.md"><b>🛠️ Setup Guide</b></a> ·
+  <a href="https://github.com/aaskjer/Battleship-Game/blob/main/FAQ.md"><b>❓ FAQ</b></a>
+</p>
 
-# Overview
-
-- Works on Twitch, YouTube, and Kick, each individually toggleable.
-- Chat takes command of a fleet and duels a CPU opponent — the **Admiral** — on a grid rendered live on your OBS overlay.
-- Both fleets are placed at random and never revealed. Each `!fire` is a full exchange: the player shoots, then the Admiral shoots back.
-- **No entry fee.** Every ship carries a configurable point value: sink one of the Admiral's and you are paid on the spot, lose one of yours and you are charged on the spot.
-- Because it settles live, walking away from a battle that is going badly saves nothing — the losses have already landed.
-- Three difficulty levels for the Admiral, plus a blunder slider that handicaps any of them without letting the AI cheat.
-- **The Admiral never sees your board.** It knows only where it has fired, what it found, and which ship lengths are still afloat — exactly what a fair opponent knows.
-- Board presets — Blitz (6×6, 3 ships), Quick (8×8, 3 ships), Classic (10×10, 5 ships) — or build a custom fleet on a 5×5 to 12×12 grid.
-- Two self-running timers: 60 seconds to open fire, then a turn clock with chat warnings and a colour-changing countdown ring at 30 and 15 seconds left.
-- Optional Twitch whisper telling each player where their own ships are.
-- Free Game mode for bragging-rights-only battles, with its own dedicated chat messages so nothing refers to points that were never at stake.
-- Auto-detects [Currency Core by StreamUP](https://streamup.tips/product/currency-core) and [LOYALTY POINTS by tawmae](https://tawmae.xyz/loyalty-points).
-- Every chat message is editable in the settings GUI, grouped by phase with the placeholder list on every field.
-- Statistics are written to persisted Streamer.bot user variables (`bsg_*`), so any other action can read a player's record — `bsg_shipsSunk`, `bsg_netProfit` — without involving this game at all.
-- Persistent daily log file with every battle played, filterable in the built-in log viewer.
-- Built-in WPF settings window with a light/dark switch, searchable page navigation, live rule summaries, a colour wheel picker for the overlay, one-click OBS setup, and a filterable action log.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/78df8db9-e9aa-40c1-93f7-f7da84c0e507" alt="The Battleship overlay in OBS" width="720">
+</p>
 
 ---
 
-## 🎮 How It Works
+## ✨ What's new in 2.0
 
-A viewer runs `!battleship`. Two fleets are placed at random, the overlay lights up, and every `!fire` trades a salvo with the Admiral.
+| | |
+| --- | --- |
+| 👥 **Chat vs the Admiral** | The whole chat is one fleet. Every round each viewer gets one vote, and the most-voted square is fired at. Win, and the pot is shared. |
+| ⚔️ **Team duel** | One chat team against another: challenge, accept, pick a side, then take turns voting on each shot. The winners share every entry. |
+| 🖱️ **Click to Fire** | With the free Heat extension, players fire by clicking enemy waters right on the stream (Twitch). |
+| 🛑 **Moderator stop** | `!stopbattle` ends whatever is running, pays nothing more out and refunds duel entries. |
+| 🎨 **New settings window** | Rebuilt in the look of the other Chat Games, with a chat preview for every message. |
+| 🌐 **Every platform plays** | No more platform switches: Twitch, YouTube and Kick all play, and replies go to the chat the command came from. |
 
-| Event | Trigger | Result |
-|---------|---------|---------|
-| 🚢 **Deploy** | A viewer runs the battleship command | Both fleets are placed at random. The player's own layout is whispered to them and drawn on the overlay. |
-| 🌊 **Miss** | A shot lands in empty water | A peg on the board, and the Admiral returns fire. |
-| 💥 **Hit** | A shot lands on a hull | The ship takes damage. Nothing is paid until it actually sinks. |
-| 🔥 **Enemy ship sunk** | The last square of an enemy ship is hit | Its value is credited immediately. |
-| ☠️ **Your ship sunk** | The Admiral finishes off one of yours | Its value is debited immediately. |
-| 🏆 **Victory** | The Admiral's whole fleet is down | An optional win bonus on top of everything already earned. |
-| 💀 **Defeat** | Your whole fleet is down | The battle ends; everything lost was already charged as it happened. |
-| 🏳️ **Walked away** | The turn clock runs out | Settles whatever has already sunk. Damaged-but-floating ships are charged pro-rata. |
-| ⚓ **Never opened fire** | A player starts a battle and walks away | The fleet returns to port. Nothing charged, nothing recorded. |
-| 🚫 **Blocked / Addicted** | Player is in a blocked group or on the Addicted list | Blocked players can't play; Addicted players play normally but earn less. |
-| ⏱️ **Cooldown** | Player starts again too soon, or hits Max Battles/Hour | A cooldown message instead of a battle. |
+---
+
+## 🎮 Three ways to play
+
+| Mode | Started with | How it plays |
+| --- | --- | --- |
+| 🚢 **Solo** | `!battleship` | One viewer against the Admiral. Each `!fire` is a full exchange: the player shoots, then the Admiral shoots back. |
+| 👥 **Chat vs the Admiral** | `!seeschlacht` | Everybody votes, by clicking or with `!fire B7`. Sinkings fill a pot, losses drain it; win, and it is shared between everyone who voted often enough. |
+| ⚔️ **Team duel** | `!duel @name` | Team A against Team B. Every member pays the entry fee, the sides take turns, and the side that sinks the other's fleet shares the pot. |
+
+Every mode can be switched off on its own.
 
 ---
 
 ## ⚓ Commands
 
-| Command | Info |
-|---------|---------|
-| `!battleship` | Put a fleet to sea and start a battle |
-| `!fire B7` | Fire at a square. Accepts `b7`, `B 7`, `b-7` — and firing at the same square twice is rejected without costing your turn |
-| `!fleet` | Redeploy your ships at random. Only before your first shot |
-| `!board` | Repost shots, accuracy, ships remaining, and your running total |
-| `!bstats` | Your record. Add a name to look someone else up |
+| Command | What it does |
+| --- | --- |
+| `!battleship` | Put a fleet to sea and start a solo battle |
+| `!fire B7` | Fire at a square — also `b7`, `B 7`, `b-7`. A square fired at before is refused and costs nothing |
+| `!fleet` | Redeploy your ships at random, before your first shot |
+| `!board` | Shots, accuracy, ships left and the running total |
+| `!seeschlacht` | Start Chat vs the Admiral |
+| `!duel @name` | Challenge a viewer to a team duel — or anybody, with no name |
+| `!accept` | Take up a challenge and captain Team B |
+| `!team A` | Join a side during sign-up: `A`, `B`, a player's name, or nothing for the smaller side |
+| `!fire link` | Link your clicks on stream to you, once (Click to Fire) |
+| `!stopbattle` | Moderators: end whatever is running, nothing more is paid out |
+| `!bstats` | Your record — add a name to look someone else up |
 | `!ballstats` | The leaderboard |
+
+The game knows its commands by their IDs, so rename any of them to whatever your chat likes.
+
+---
+
+## 🌊 How a battle plays
+
+Both fleets are placed at random and never shown to the other side. Every sinking settles on the spot.
+
+| | Event | What happens |
+| --- | --- | --- |
+| 🚢 | **Deploy** | Both fleets are placed. The player's own fleet is drawn on the overlay, and optionally whispered to them. |
+| 🌊 | **Miss** | A peg on the board, and the Admiral fires back. |
+| 💥 | **Hit** | The ship takes damage. Nothing is paid until it sinks. |
+| 🔥 | **Enemy ship sunk** | Its value is paid at once. |
+| ☠️ | **Your ship sunk** | Its value is charged at once. |
+| 🏆 | **Victory** | The whole enemy fleet is down — plus an optional win bonus. |
+| 💀 | **Defeat** | Your fleet is gone; everything lost was already charged as it happened. |
+| ⏰ | **Walked away** | The turn clock runs out and settles whatever has sunk. Damaged ships can be charged pro-rata. |
+
+Board presets: **Blitz** (6×6, 3 ships), **Quick** (8×8, 3 ships) and **Classic** (10×10, 5 ships) — or any fleet on a 5×5 to 12×12 grid, with an optional rule that ships may not touch.
 
 ---
 
 ## 🎯 The Admiral
 
-Three skill levels, measured over 10,000 games per difficulty on the Quick preset (8×8, 3 ships, 10 hull squares):
+| Level | Plays like | Shots to clear a Quick board |
+| --- | --- | --- |
+| **Ensign** | Fires at random, never twice at a square | ~59 |
+| **Captain** *(default)* | Hunts down a ship once it lands a hit, and follows a line of hits to both ends | ~36 |
+| **Admiral** | Also hunts on a lattice spaced to the shortest ship still afloat, so nothing hides between its shots | ~30 |
 
-| Level | Behaviour | Avg. shots to clear the board |
-|---|---|---|
-| **Ensign** | Fires uniformly at random, never repeating a square | ~59 |
-| **Captain** *(default)* | Hunts: once it lands a hit it works the neighbours, and once two hits line up it follows that axis to both ends | ~36 |
-| **Admiral** | Adds lattice hunting — it only checks squares spaced to the shortest ship still afloat, so nothing can hide between the checks — and skips gaps too small for anything left | ~30 |
+A **blunder chance** makes any level fire blind now and then. **The Admiral never sees your board**: it only knows where it fired, what it found, and which ship lengths are still afloat.
 
-On Classic (10×10, 5 ships) the same three come out at roughly 96 / 62 / 52 shots.
+<details>
+<summary>Measured how?</summary>
 
-A **blunder chance** slider makes any level throw away its plan and fire blind some percentage of the time. At 100% even the Admiral plays like an Ensign. It handicaps without ever letting the AI peek at your board.
+10,000 self-games per level and preset. On Classic (10×10, 5 ships) the three levels need roughly 96, 62 and 52 shots.
+
+</details>
 
 ---
 
 ## 💰 Points
 
-Nothing is staked up front. Each ship class has a value you set:
+There is **no bet and no entry fee** in a solo battle. Every ship has a value you set:
 
 | | |
-|---|---|
-| Sink an enemy ship | **+** its value, immediately |
-| Lose one of your own | **−** its value, immediately |
-| Win the battle | optional flat bonus on top |
+| --- | --- |
+| Sink an enemy ship | **+** its value, at once |
+| Lose one of your own | **−** its value, at once |
+| Win the battle | an optional bonus on top |
 
-Settling live is what closes the rage-quit hole. There is no moment where a player can see the battle turning and bail out cheaper than staying.
+Because everything settles as it happens, bailing out of a battle that goes badly saves nothing. Guard rails: a minimum balance to play, balances that never go below zero, a daily winnings cap, cooldowns, battles per hour, and an *addicted* list whose players win less. **Free game** turns all of it off for bragging rights only.
 
-Ship-granularity leaves one small gap — walking away one hit before a Carrier sinks — and **Charge for damaged ships on abandon** (on by default) closes it by charging pro-rata for hit-but-floating ships when a player times out. It never applies during normal play.
-
-Guard rails: a minimum balance to play (defaulting to the value of the player's own fleet, so nobody plays a game they cannot lose), balances that clamp at zero, an optional daily winnings cap, per-user and global cooldowns, and Max Battles/Hour.
+Works with [Currency Core by StreamUP](https://streamup.tips/product/currency-core) and [LOYALTY POINTS by tawmae](https://tawmae.xyz/loyalty-points) out of the box, or any points variable of your own.
 
 ---
 
-## ⏱️ Timers
+## 📺 The overlay
 
-Both run on their own, so a player who walks away closes their own battle instead of leaving it open forever.
-
-| Timer | Default | What happens |
-|---|---|---|
-| **Deploy** | 60s | Started a battle but never fired. Nothing has sunk, so nothing is charged and it is not recorded as a battle. |
-| **Turn** | 90s | Chat warnings at **30s** and **15s** remaining, with the overlay ring turning amber then pulsing red. Running out settles whatever has already sunk. |
-
-Both durations and both warning thresholds are configurable, and a threshold that would not fit inside the turn clock is skipped rather than fired instantly. The settings page spells out the resulting sequence as a sentence.
+- Two boards side by side: **your fleet** drawn in full, **enemy waters** fogged until something is hit
+- Impact bursts, sunk silhouettes, a marker on the last shot, and a fleet roster with damage pips
+- A countdown ring that turns amber, then pulses red, as chat gets its warnings
+- The chat's votes and the duel's sides drawn right on the board
+- Transparent, scalable, every colour configurable — and set up in OBS with one click
 
 ---
 
-## 📺 OBS Overlay
+## 🏆 Stats and leaderboard
 
-A self-contained browser source that renders the battle live, installed automatically into the overlay folder — no manual file copying. Add a Browser Source pointing at `battleship_overlay.html`; the background is transparent so it layers over any scene.
-
-- Two grids side by side: **your fleet** drawn in full, and **enemy waters** fogged until something is hit.
-- Showing your own ships gives nothing away — the Admiral reads neither chat nor the overlay.
-- Miss pegs, impact bursts, revealed silhouettes for sunk ships, and a marker on the square that was just hit.
-- Fleet roster under each board with per-ship damage pips and struck-through sinkings, each side toggled on its own. Hiding one keeps the two boards level rather than shunting one up.
-- Countdown ring that turns amber and then pulsing red at the same moments chat gets its warnings.
-- Running points total and live accuracy, then a result badge that holds and fades.
-- Scale, font scale, every colour, and per-element toggles are configurable from the OBS Overlay tab.
-- The overlay folder can be a subfolder of the game directory or any full path on any drive.
-- Version-stamped and self-upgrading, preserving your previous file as a `.bak`.
+`!bstats` shows a player's record: battles, win rate, accuracy, ships sunk and lost, streaks and net. `!ballstats` ranks by net, points won, ships sunk or accuracy, with 🥇🥈🥉 for the top three. Leaderboards reset on demand, or automatically every week or month for seasons. Every value lives in a `bsg_*` user variable, so your own actions can read it too.
 
 ---
 
-## 🏆 Leaderboard
+## ⚙️ The settings window
 
-`!ballstats` ranks players on **net** by default — everything won minus everything lost — which is the honest measure now that losing ships costs points. Also rankable by points won, ships sunk, or accuracy (which requires at least 25 shots to qualify, so one lucky shot is not a record).
-🥇🥈🥉 medals for the top three, configurable to 1–10 places, with optional hiding of the broadcaster and bot account matched by user id so a name change can't put them back on the board.
-`!bstats` reports a player's own record — battles, win rate, accuracy, ships sunk and lost, flawless victories, fewest-shots win, streaks and net. Pass a name to look up someone else.
-Leaderboards can be reset on demand from the settings window, or automatically **weekly or monthly** for running seasons — either the running totals only, or every statistic.
+Everything is set up in one window, in the look of the other Chat Games:
 
-
----
-
-## Get Started
-
-[Setup Guide](https://github.com/aaskjer/Battleship-Game/blob/main/Setup-Guide.md)
-
-[Frequently Asked Questions](https://github.com/aaskjer/Battleship-Game/blob/main/FAQ.md)
-
-[Import String for streamer.bot](https://github.com/aaskjer/Battleship-Game/blob/main/Utilities/Import-String.md)
-
-[Download](https://github.com/aaskjer/Battleship-Game/releases)
+| Page | |
+| --- | --- |
+| **Game** | Points, free game, economy, the Admiral, the battle clock |
+| **Fleet** | Presets, board size, ships with their lengths and values |
+| **Modes** | Solo, Chat vs the Admiral, Team duel |
+| **Overlay** | Size, colours, what is shown, one-click OBS setup |
+| **Clicks** | Click to Fire with Heat |
+| **Access** | Cooldowns, blocked and addicted viewers |
+| **Messages** | Every chat message, with placeholder chips and a chat preview |
+| **Stats** | Leaderboard and seasons |
+| **Log** | Every battle, searchable and filterable |
 
 ---
 
-## Credits & Links
+## 🚀 Get started
 
-[aaskjer on Twitch](https://twitch.tv/aaskjer)
+1. **Import** — drag [`BattleshipGame.sb`](https://github.com/aaskjer/Battleship-Game/releases) into Streamer.bot's Import window, or paste the [import string](https://github.com/aaskjer/Battleship-Game/blob/main/Import-String.md).
+2. **Enable the commands** in the `[BG] - Battelship Game` group.
+3. **Open the settings** and check your points and fleet.
+4. **Add the overlay** to OBS with one click on the Overlay page.
 
-[aaskjer.github.io](https://aaskjer.github.io/) 
+The [Setup Guide](https://github.com/aaskjer/Battleship-Game/blob/main/Setup-Guide.md) walks through every step, and the [FAQ](https://github.com/aaskjer/Battleship-Game/blob/main/FAQ.md) answers the usual questions.
 
-[Battleship-Game on SB Discord]()
+---
 
-[Streamer.bot](https://streamer.bot) / [nate1280](https://www.patreon.com/c/nate1280/home)
+## 💜 Credits
 
-YOU ♡
+Made by **[aaskjer](https://twitch.tv/aaskjer)** · [aaskjer.github.io](https://aaskjer.github.io/)<br>
+Built on [Streamer.bot](https://streamer.bot) by [nate1280](https://www.patreon.com/c/nate1280/home)<br>
+Questions and ideas: [Battleship Game on the Streamer.bot Discord](https://discord.com/channels/834650675224248362/1447648588694818836/1447648588694818836)
+
+And **YOU** ♡
