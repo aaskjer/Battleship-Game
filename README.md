@@ -33,7 +33,7 @@
 - Every chat message is editable in the settings GUI, grouped by phase with the placeholder list on every field.
 - Statistics are written to persisted Streamer.bot user variables (`bsg_*`), so any other action can read a player's record — `bsg_shipsSunk`, `bsg_netProfit` — without involving this game at all.
 - Persistent daily log file with every battle played, filterable in the built-in log viewer.
-- Built-in WPF settings window with a light/dark switch, searchable page navigation, live rule summaries, a colour wheel picker for the overlay, one-click OBS setup, and a filterable action log.
+- Built-in WPF settings window with a light/dark switch, searchable page navigation, live rule summaries, a colour picker for the overlay, one-click OBS setup, and a filterable action log.
 
 ---
 
