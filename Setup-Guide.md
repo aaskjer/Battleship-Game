@@ -50,7 +50,16 @@ Twitch, YouTube and Kick all play, and every reply goes to the chat the command 
 
 ## 3. Open the settings window
 
-Open the **[BG] - .Settings** action, right-click **Test** under **Triggers** and choose **Test Trigger**. Everything is configured there; the pages sit in the rail on the left — Game, Fleet, Modes, Overlay, Clicks, Access, Messages, Stats, Log and About (Ctrl+1 to Ctrl+0).
+Open the **[BG] - .Settings** action, right-click **Test** under **Triggers** and choose **Test Trigger**. Everything is configured there; the pages sit in the rail on the left — Game, Fleet, Modes, Overlay, Clicks, Access, Messages, Stats, Log, How to play and About (Ctrl+1 to Ctrl+9 for the first nine).
+
+The first time, a small dialog asks whether to download `UIFramework.dll` — the settings window itself, shared by
+all of these chat games and kept at [aaskjer/UIFramework-Streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot).
+**Yes** fetches it (about 200 KB, checked against its published hash) into `UIFramework\lib\<version>\` next to
+Streamer.bot and opens the window. **No** opens that folder instead, for when you would rather drop the file in by
+hand from the [releases](https://github.com/aaskjer/UIFramework-Streamer.bot/releases). When a newer window is
+released the same dialog comes back once; **Cancel** skips that version.
+
+Hover over an option for a tooltip with the details. **Save** or Ctrl+S keeps your changes, **Save & Exit** also closes the window. The buttons at the bottom left switch between dark and light, reset everything or only the page in front, and open the customise mode: rename, reorder, hide or move pages and fields by drag and drop or from their context menu, pick an accent colour, and the window keeps that layout in `uiframework.layout.json` next to the settings — through every update of the game.
 
 At minimum, check:
 
@@ -86,7 +95,7 @@ Lets the player whose battle is on screen fire by clicking a square in enemy wat
 
 1. Install Heat on your channel and activate it as an **Overlay** extension.
 2. In Streamer.bot open **Servers/Clients ▸ WebSocket Server**, tick **Auto Start** and press **Start Server**. The overlay hands each click to the **Battleship Game** action through it. The default address, `127.0.0.1:8080`, needs no change.
-3. In the settings window open **Clicks**, switch on **Fire by clicking the stream** and save. Your channel ID is taken from the Twitch broadcaster account connected to Streamer.bot.
+3. In the settings window open **Clicks**, switch on **Fire by clicking the stream** and save. Your channel ID is taken from the Twitch broadcaster account connected to Streamer.bot; the page shows which one it found.
 4. If you added the browser source by hand or resized it, make it cover the whole canvas: set its width and height to your canvas size, then right-click it ▸ **Transform ▸ Fit to screen**. Or enter where it sits on the Clicks page.
 5. Check it: switch on **Show every click on the overlay**, save, then while live open your channel in a browser and click around the video. Each marker should land under the pointer, and the box in the corner says whether Heat and Streamer.bot are connected. Switch it off afterwards — viewers see it too.
 
@@ -120,8 +129,8 @@ The `tools/` folder holds the checks used while building this, all runnable from
 | `check-all.ps1` | Runs every check below in one go — run it before shipping a change |
 | `run-engine-tests.ps1` | Lifts the pure-logic region out of `BattleshipGame.cs` and runs ~100 assertions against it — placement integrity, shot resolution, and 10,000 self-games per difficulty per preset |
 | `check-compile.ps1` | Compiles all three actions exactly the way Streamer.bot does: base class, usings, and the `override` it adds to Execute, Init and Dispose |
-| `check-settings.ps1` | Catches drift between the three `Settings` classes, and control tags that name a property that does not exist |
-| `gui-shots.ps1` | Renders every page of the settings window offscreen to PNG, or with `-Test` drives the real window through ~80 behaviour checks |
+| `check-settings.ps1` | Holds the settings table in the game and the scoreboard together, and checks that every setting is read and every read is declared |
+| `run-window-tests.ps1` | Opens the real UIFramework window through the settings stub over an old-style settings file, checks the migration, the presets and summaries, and writes the schema into the UIFramework repository |
 | `sync-overlay.ps1` | Regenerates the embedded overlay in `BattleshipGame.cs` from `battleship_overlay.html` and bumps the version stamp |
 
 They compile with the Roslyn assemblies that ship inside Streamer.bot, so no .NET SDK is needed — only a Streamer.bot install. Pass `-StreamerBotPath` if yours is not at the default location.
