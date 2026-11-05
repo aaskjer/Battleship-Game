@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented here.
 
+## [2.2.0] — Unreleased
+
+### 🆓 Free game from chat
+
+- **Two moderator commands.** `!SetFreeBattleship` turns Free game on and `!EndFreeBattleship` turns it off (they
+  come with the import, disabled and set to the Moderators group). The switch is written into the settings file, so
+  the window's pill shows it, and chat gets the new Started and Ended messages (Messages page, Free game). An action
+  of your own can do the same with an Execute C# Method on `StartFreeGame` or `EndFreeGame` of the game action.
+- **Two more custom triggers.** `BSG: Free Game Start` and `BSG: Free Game End` fire whenever Free game is switched
+  that way.
+
 ## [2.1.0] — Unreleased
 
 ### 🔔 For your own actions

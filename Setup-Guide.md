@@ -37,6 +37,8 @@ The commands arrive switched off. In the **Commands** tab, right-click the group
 | `!accept` | Battleship Game | `0797e4bc-ec92-4940-af31-84f0b7ba5513` |
 | `!team` | Battleship Game | `a6aab1e0-0e47-4d4e-9238-87067d369748` |
 | `!stopbattle` | Battleship Game | `7e59baf2-0cf5-4442-963e-2df9776951be` |
+| `!SetFreeBattleship` | Battleship Game | `9b2d7c1e-3a4f-4e5b-8c6d-0f1e2d3c4b01` |
+| `!EndFreeBattleship` | Battleship Game | `9b2d7c1e-3a4f-4e5b-8c6d-0f1e2d3c4b02` |
 | `!bstats` | Battleship Scoreboard | `d25e44f1-2da3-435c-b1c4-fc07f02c74a4` |
 | `!ballstats` | Battleship Scoreboard | `a562b900-a7d7-42ca-a818-a2acb5b85ba7` |
 
@@ -45,6 +47,7 @@ The game knows its commands by their IDs, not by their text, so you can rename a
 - `!seeschlacht` starts **Chat vs the Admiral**, where the whole chat votes.
 - `!duel @name` challenges a viewer to a **team duel** (no name: anybody may accept), `!accept` takes it up, and `!team` joins a side during sign-up — `!team A`, `!team B`, `!team kim` to join kim's side, or plain `!team` for the smaller one.
 - `!stopbattle` is for moderators and comes set to the **Moderators** group. It ends whatever is running and pays nothing more out; a duel's entries are refunded.
+- `!SetFreeBattleship` and `!EndFreeBattleship` switch **Free game** from chat (moderators, disabled until you enable them). The switch lands in the settings file, so the window's pill shows it, and chat gets the Started or Ended message.
 
 Twitch, YouTube and Kick all play, and every reply goes to the chat the command came from. To leave a platform out, untick it in the commands' sources (for example *Kick Message*).
 
