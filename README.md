@@ -49,6 +49,8 @@ Admiral shoots back. Twitch, YouTube and Kick can each be switched on or off.
 - 📺 **A live OBS overlay.** Your fleet in full, enemy waters fogged until something is hit, damage pips per
   ship, running points and accuracy. It installs itself and keeps the previous version as a `.bak` when it
   updates.
+- 🔔 **Hooks for your own actions.** Custom triggers for every finished battle, the chat's battle and a duel, with
+  the battle as arguments.
 - 🏆 **Records other actions can read.** Stats live in persisted `bsg_*` user variables. The leaderboard ranks
   net result, points won, ships sunk or accuracy, and resets weekly or monthly if you want seasons.
 - ⚙️ **One settings window.** Built on [UIFramework for streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot)

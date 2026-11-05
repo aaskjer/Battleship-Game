@@ -4,6 +4,18 @@ All notable changes to this project are documented here.
 
 ## [2.1.0] — Unreleased
 
+### 🔔 For your own actions
+
+- **Custom triggers.** Every finished battle fires a trigger (Custom > Chat Game > Battleship Game): `BSG: Battle
+  Won`, `BSG: Battle Lost`, `BSG: Battle Timed Out` or `BSG: Battle Stopped` for a solo battle, `BSG: Chat Battle
+  Settled` for the chat's battle, `BSG: Duel Settled` for a team duel, and `BSG: Battle Settled` for every one of
+  them. The trigger carries the battle as arguments: `battleOutcome` (the log's result: WIN, LOSS, TIMEOUT, NO-SHOW,
+  STOPPED), `battleMode` (solo, chat or duel), `battleUser`, `battleUserId`, `battlePlatform`, `battleTrigger`
+  (fire, timeout or stop), `battleBoard`, `battleShots`, `battleHits`, `battleAccuracy`, `battleShipsSunk`,
+  `battleShipsLost`, `battleNet` (the battle's total, or a duel's pot), `battleWinner` (a duel's winning side) and
+  `battleCurrency`. `GetLastBattleResult`, run with an Execute C# Method sub-action on the game action, hands the
+  same arguments to any other action.
+
 ### 🪟 Settings window
 
 - **German.** With the window's language set to `de` (the pencil, then *Sprache*), every setting, section, page
