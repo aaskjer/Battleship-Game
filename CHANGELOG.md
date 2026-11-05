@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented here.
 
+## [2.1.0] — Unreleased
+
+### 🪟 Settings window
+
+- **German.** With the window's language set to `de` (the pencil, then *Sprache*), every setting, section, page
+  and message of the window reads in German. The help and about pages, the summaries and the presets' status
+  line stay English.
+- **The settings action is UIFramework's generic stub.** `[BG] - .Settings` carries no layout and no code of its
+  own any more: the game action declares its window (pages, the log, help and about, the cooldowns of
+  `!battleship`) beside its settings table and answers the window itself. *Reset the leaderboard now*, *Set the
+  overlay up in OBS* and *Add to OBS* now answer with what happened instead of "queued", and a save puts the
+  Click to Fire settings on a live overlay as before. Needs UIFramework 0.9.2 or newer; the stub fetches it.
+
 ## [2.0.0] — 2026-11-03
 
 The settings window moved into [UIFramework for streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot),

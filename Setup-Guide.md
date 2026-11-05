@@ -130,7 +130,7 @@ The `tools/` folder holds the checks used while building this, all runnable from
 | `run-engine-tests.ps1` | Lifts the pure-logic region out of `BattleshipGame.cs` and runs ~100 assertions against it — placement integrity, shot resolution, and 10,000 self-games per difficulty per preset |
 | `check-compile.ps1` | Compiles all three actions exactly the way Streamer.bot does: base class, usings, and the `override` it adds to Execute, Init and Dispose |
 | `check-settings.ps1` | Holds the settings table in the game and the scoreboard together, and checks that every setting is read and every read is declared |
-| `run-window-tests.ps1` | Opens the real UIFramework window through the settings stub over an old-style settings file, checks the migration, the presets and summaries, and writes the schema into the UIFramework repository |
+| `run-window-tests.ps1` | Opens the real UIFramework window through the generic settings stub over an old-style settings file, checks the migration, the presets, summaries, the check before saving and the cooldowns, and writes the schema into the UIFramework repository |
 | `sync-overlay.ps1` | Regenerates the embedded overlay in `BattleshipGame.cs` from `battleship_overlay.html` and bumps the version stamp |
 
 They compile with the Roslyn assemblies that ship inside Streamer.bot, so no .NET SDK is needed — only a Streamer.bot install. Pass `-StreamerBotPath` if yours is not at the default location.
