@@ -48,7 +48,7 @@ Admiral shoots back. Twitch, YouTube and Kick can each be switched on or off.
   afloat are charged pro rata when a player times out.
 - 📺 **A live OBS overlay.** Your fleet in full, enemy waters fogged until something is hit, damage pips per
   ship, running points and accuracy. It installs itself and keeps the previous version as a `.bak` when it
-  updates.
+  updates. *Try the demo* and *Show a sample round* play a made-up battle to set it up without a real one.
 - 🔔 **Hooks for your own actions.** Custom triggers for every finished battle, the chat's battle and a duel, with
   the battle as arguments, and for Free game being switched on or off.
 - 🆓 **Free game from chat.** `!SetFreeBattleship` and `!EndFreeBattleship` (moderators) switch Free game, with a

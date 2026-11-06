@@ -85,6 +85,8 @@ To do it by hand: the overlay installs itself the first time the game action run
 
 The Overlay page has a button that opens this folder. The background is transparent, so it layers over any scene. Make the source the size of your canvas — 1920×1080 for most — and let it cover the whole canvas; the button does exactly that, and Click to Fire relies on it.
 
+To see it without playing: **Try the demo** opens the overlay in your browser with a made-up battle in your saved colours, and **Show a sample round** plays that battle once on the overlay in OBS. With `?demo=1` on the overlay's address OBS plays the demo over and over while you place the source; take it off again before you go live.
+
 ## 5. Play
 
 ```

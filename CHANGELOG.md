@@ -4,6 +4,17 @@ All notable changes to this project are documented here.
 
 ## [2.2.0] — Unreleased
 
+### 📺 Overlay
+
+- **Try the demo.** A new button on the Overlay page opens the overlay in your browser, playing a short made-up
+  battle in the saved look (a miss, a sunk destroyer, the Admiral finding your cruiser, the enemy fleet sunk),
+  without Streamer.bot. With `?demo=1` on the overlay's address, OBS plays it the same way, to place and size the
+  source.
+- **Show a sample round.** The button beside it plays that battle once on every overlay that is open, the one in OBS
+  included, so you can check where it sits and how it looks; then the overlay goes back to no battle. Not while a
+  real battle runs. The overlay is version 17 and replaces an older copy on the next command, keeping that one as
+  a `.bak`; an overlay already open in OBS reloads itself within ten seconds.
+
 ### 🆓 Free game from chat
 
 - **Two moderator commands.** `!SetFreeBattleship` turns Free game on and `!EndFreeBattleship` turns it off (they

@@ -118,7 +118,8 @@ walking away would be worth precisely the same anyway.
 ### The overlay is blank.
 Check that the Browser Source points at `battleship_overlay.html` in the folder shown on the Overlay
 settings page — there is a button there to open it. The overlay only draws while a battle is
-live; between battles it is intentionally invisible.
+live; between battles it is intentionally invisible. **Show a sample round** on the Overlay page plays a made-up
+battle on it, so you can check it without starting one.
 
 ### Numbers on the overlay don't match chat.
 They should — both use the **Numbers** separator on the Messages page. If they disagree you are looking at a
