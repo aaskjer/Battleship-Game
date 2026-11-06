@@ -49,11 +49,15 @@ Admiral shoots back. Twitch, YouTube and Kick can each be switched on or off.
 - 📺 **A live OBS overlay.** Your fleet in full, enemy waters fogged until something is hit, damage pips per
   ship, running points and accuracy. It installs itself and keeps the previous version as a `.bak` when it
   updates.
+- 🔔 **Hooks for your own actions.** Custom triggers for every finished battle, the chat's battle and a duel, with
+  the battle as arguments, and for Free game being switched on or off.
+- 🆓 **Free game from chat.** `!SetFreeBattleship` and `!EndFreeBattleship` (moderators) switch Free game, with a
+  message to chat and a custom trigger each.
 - 🏆 **Records other actions can read.** Stats live in persisted `bsg_*` user variables. The leaderboard ranks
   net result, points won, ships sunk or accuracy, and resets weekly or monthly if you want seasons.
 - ⚙️ **One settings window.** Built on [UIFramework for streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot)
-  and downloaded on first open: light and dark themes, live rule summaries, one-click OBS setup, a filterable
-  log and a customise mode that lets you rename, reorder and hide pages and fields. Every chat message is
+  and downloaded on first open: light and dark themes, English or German, live rule summaries, one-click OBS
+  setup, a filterable log and a customise mode that lets you rename, reorder and hide pages and fields. Every chat message is
   editable, and Free Game mode has its own set, so no line mentions points that were never at stake.
 
 ---

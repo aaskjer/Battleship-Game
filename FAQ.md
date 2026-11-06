@@ -37,6 +37,14 @@ start holds it and hands it over when it ends — but everyone gets full play in
 Nothing. There is no bet and no entry fee. You earn by sinking the Admiral's ships and you pay when
 you lose your own, at the value configured for each ship class.
 
+### Can a moderator make battles free from chat?
+Yes: `!SetFreeBattleship` turns Free game on and `!EndFreeBattleship` turns it off. The two commands come
+with the import, disabled and for Moderators; enable them in Streamer.bot's Commands tab. The switch is written
+into the settings file, so the window's pill shows it, chat gets the Started or Ended message, and your own
+actions can listen to `BSG: Free Game Start` and `BSG: Free Game End`. An action of your own can do the same
+with an Execute C# Method on `StartFreeGame` or `EndFreeGame` of the game action. A battle already under way
+goes on as it started.
+
 ### Why do I lose points during the battle rather than at the end?
 So that leaving early cannot save you anything. If losses only landed at the end, the correct play
 would be to walk away the moment a battle turned — which is not much of a game. Settling as it happens
