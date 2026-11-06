@@ -51,9 +51,10 @@ Admiral shoots back. Twitch, YouTube and Kick can each be switched on or off.
   updates.
 - 🏆 **Records other actions can read.** Stats live in persisted `bsg_*` user variables. The leaderboard ranks
   net result, points won, ships sunk or accuracy, and resets weekly or monthly if you want seasons.
-- ⚙️ **One settings window.** Light and dark themes, live rule summaries, one-click OBS setup and a filterable
-  log. Every chat message is editable, and Free Game mode has its own set, so no line mentions points that
-  were never at stake.
+- ⚙️ **One settings window.** Built on [UIFramework for streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot)
+  and downloaded on first open: light and dark themes, live rule summaries, one-click OBS setup, a filterable
+  log and a customise mode that lets you rename, reorder and hide pages and fields. Every chat message is
+  editable, and Free Game mode has its own set, so no line mentions points that were never at stake.
 
 ---
 
