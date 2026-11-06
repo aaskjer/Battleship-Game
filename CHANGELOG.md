@@ -2,6 +2,53 @@
 
 All notable changes to this project are documented here.
 
+## [2.2.0] — Unreleased
+
+### 📺 Overlay
+
+- **Try the demo.** A new button on the Overlay page opens the overlay in your browser, playing a short made-up
+  battle in the saved look (a miss, a sunk destroyer, the Admiral finding your cruiser, the enemy fleet sunk),
+  without Streamer.bot. With `?demo=1` on the overlay's address, OBS plays it the same way, to place and size the
+  source.
+- **Show a sample round.** The button beside it plays that battle once on every overlay that is open, the one in OBS
+  included, so you can check where it sits and how it looks; then the overlay goes back to no battle. Not while a
+  real battle runs. The overlay is version 17 and replaces an older copy on the next command, keeping that one as
+  a `.bak`; an overlay already open in OBS reloads itself within ten seconds.
+
+### 🆓 Free game from chat
+
+- **Two moderator commands.** `!SetFreeBattleship` turns Free game on and `!EndFreeBattleship` turns it off (they
+  come with the import, disabled and set to the Moderators group). The switch is written into the settings file, so
+  the window's pill shows it, and chat gets the new Started and Ended messages (Messages page, Free game). An action
+  of your own can do the same with an Execute C# Method on `StartFreeGame` or `EndFreeGame` of the game action.
+- **Two more custom triggers.** `BSG: Free Game Start` and `BSG: Free Game End` fire whenever Free game is switched
+  that way.
+
+## [2.1.0] — Unreleased
+
+### 🔔 For your own actions
+
+- **Custom triggers.** Every finished battle fires a trigger (Custom > Chat Game > Battleship Game): `BSG: Battle
+  Won`, `BSG: Battle Lost`, `BSG: Battle Timed Out` or `BSG: Battle Stopped` for a solo battle, `BSG: Chat Battle
+  Settled` for the chat's battle, `BSG: Duel Settled` for a team duel, and `BSG: Battle Settled` for every one of
+  them. The trigger carries the battle as arguments: `battleOutcome` (the log's result: WIN, LOSS, TIMEOUT, NO-SHOW,
+  STOPPED), `battleMode` (solo, chat or duel), `battleUser`, `battleUserId`, `battlePlatform`, `battleTrigger`
+  (fire, timeout or stop), `battleBoard`, `battleShots`, `battleHits`, `battleAccuracy`, `battleShipsSunk`,
+  `battleShipsLost`, `battleNet` (the battle's total, or a duel's pot), `battleWinner` (a duel's winning side) and
+  `battleCurrency`. `GetLastBattleResult`, run with an Execute C# Method sub-action on the game action, hands the
+  same arguments to any other action.
+
+### 🪟 Settings window
+
+- **German.** With the window's language set to `de` (the pencil, then *Sprache*), every setting, section, page
+  and message of the window reads in German. The help and about pages, the summaries and the presets' status
+  line stay English.
+- **The settings action is UIFramework's generic stub.** `[BG] - .Settings` carries no layout and no code of its
+  own any more: the game action declares its window (pages, the log, help and about, the cooldowns of
+  `!battleship`) beside its settings table and answers the window itself. *Reset the leaderboard now*, *Set the
+  overlay up in OBS* and *Add to OBS* now answer with what happened instead of "queued", and a save puts the
+  Click to Fire settings on a live overlay as before. Needs UIFramework 0.9.2 or newer; the stub fetches it.
+
 ## [2.0.0] — 2026-11-03
 
 The settings window moved into [UIFramework for streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot),

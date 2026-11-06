@@ -37,6 +37,8 @@ The commands arrive switched off. In the **Commands** tab, right-click the group
 | `!accept` | Battleship Game | `0797e4bc-ec92-4940-af31-84f0b7ba5513` |
 | `!team` | Battleship Game | `a6aab1e0-0e47-4d4e-9238-87067d369748` |
 | `!stopbattle` | Battleship Game | `7e59baf2-0cf5-4442-963e-2df9776951be` |
+| `!SetFreeBattleship` | Battleship Game | `9b2d7c1e-3a4f-4e5b-8c6d-0f1e2d3c4b01` |
+| `!EndFreeBattleship` | Battleship Game | `9b2d7c1e-3a4f-4e5b-8c6d-0f1e2d3c4b02` |
 | `!bstats` | Battleship Scoreboard | `d25e44f1-2da3-435c-b1c4-fc07f02c74a4` |
 | `!ballstats` | Battleship Scoreboard | `a562b900-a7d7-42ca-a818-a2acb5b85ba7` |
 
@@ -45,6 +47,7 @@ The game knows its commands by their IDs, not by their text, so you can rename a
 - `!seeschlacht` starts **Chat vs the Admiral**, where the whole chat votes.
 - `!duel @name` challenges a viewer to a **team duel** (no name: anybody may accept), `!accept` takes it up, and `!team` joins a side during sign-up — `!team A`, `!team B`, `!team kim` to join kim's side, or plain `!team` for the smaller one.
 - `!stopbattle` is for moderators and comes set to the **Moderators** group. It ends whatever is running and pays nothing more out; a duel's entries are refunded.
+- `!SetFreeBattleship` and `!EndFreeBattleship` switch **Free game** from chat (moderators, disabled until you enable them). The switch lands in the settings file, so the window's pill shows it, and chat gets the Started or Ended message.
 
 Twitch, YouTube and Kick all play, and every reply goes to the chat the command came from. To leave a platform out, untick it in the commands' sources (for example *Kick Message*).
 
@@ -81,6 +84,8 @@ To do it by hand: the overlay installs itself the first time the game action run
 <p align="center"><img alt="The Battleship Game folder" src="https://github.com/user-attachments/assets/6d02e59c-ebbd-4b39-816a-c2be6ad5fd5d"></p>
 
 The Overlay page has a button that opens this folder. The background is transparent, so it layers over any scene. Make the source the size of your canvas — 1920×1080 for most — and let it cover the whole canvas; the button does exactly that, and Click to Fire relies on it.
+
+To see it without playing: **Try the demo** opens the overlay in your browser with a made-up battle in your saved colours, and **Show a sample round** plays that battle once on the overlay in OBS. With `?demo=1` on the overlay's address OBS plays the demo over and over while you place the source; take it off again before you go live.
 
 ## 5. Play
 
@@ -130,7 +135,7 @@ The `tools/` folder holds the checks used while building this, all runnable from
 | `run-engine-tests.ps1` | Lifts the pure-logic region out of `BattleshipGame.cs` and runs ~100 assertions against it — placement integrity, shot resolution, and 10,000 self-games per difficulty per preset |
 | `check-compile.ps1` | Compiles all three actions exactly the way Streamer.bot does: base class, usings, and the `override` it adds to Execute, Init and Dispose |
 | `check-settings.ps1` | Holds the settings table in the game and the scoreboard together, and checks that every setting is read and every read is declared |
-| `run-window-tests.ps1` | Opens the real UIFramework window through the settings stub over an old-style settings file, checks the migration, the presets and summaries, and writes the schema into the UIFramework repository |
+| `run-window-tests.ps1` | Opens the real UIFramework window through the generic settings stub over an old-style settings file, checks the migration, the presets, summaries, the check before saving and the cooldowns, and writes the schema into the UIFramework repository |
 | `sync-overlay.ps1` | Regenerates the embedded overlay in `BattleshipGame.cs` from `battleship_overlay.html` and bumps the version stamp |
 
 They compile with the Roslyn assemblies that ship inside Streamer.bot, so no .NET SDK is needed — only a Streamer.bot install. Pass `-StreamerBotPath` if yours is not at the default location.
