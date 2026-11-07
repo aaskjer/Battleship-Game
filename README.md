@@ -60,6 +60,10 @@ Admiral shoots back. Twitch, YouTube and Kick can each be switched on or off.
   setup, a filterable log and a customise mode that lets you rename, reorder and hide pages and fields. Every chat message is
   editable, and Free Game mode has its own set, so no line mentions points that were never at stake.
 
+<p align="center">
+  <img src="https://github.com/aaskjer/Battleship-Game/blob/main/Assets/overlay/battle.png?raw=true" alt="A battle on the overlay, the viewer's fleet against the broadcaster's" width="100%">
+</p>
+
 ---
 
 ## Credits
