@@ -60,23 +60,9 @@ Admiral shoots back. Twitch, YouTube and Kick can each be switched on or off.
   setup, a filterable log and a customise mode that lets you rename, reorder and hide pages and fields. Every chat message is
   editable, and Free Game mode has its own set, so no line mentions points that were never at stake.
 
----
-
-## ⚙️ Settings window
-
-The settings action opens a window from [UIFramework for streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot),
-a separate DLL that is fetched automatically.
-
-- **First open:** a dialog asks whether to download `UIFramework.dll` from the framework's GitHub release into
-  `<Streamer.bot>\UIFramework\lib\`. The file is checked against its published SHA-256 before it is used. *No*
-  opens that folder so you can put the DLL there yourself; *Cancel* leaves everything as it is.
-- **Updates:** when a newer framework release is out, the window asks before it downloads anything. *Cancel* skips
-  that version for good.
-- **Turning the update check off:** put `"autoUpdate": false` into `uiframework.layout.json`, next to the settings
-  file `<Streamer.bot>\Chat Games\Battleship Game\BSG-Settings.json` (create it as `{ "autoUpdate": false }` if it is not there yet). The window then
-  opens with the DLL it has and asks nothing.
-- **Without the window:** the game itself never loads the DLL. Disable the settings action and the game plays on
-  with its settings file, which you can still edit by hand.
+<p align="center">
+  <img src="https://github.com/aaskjer/Battleship-Game/blob/main/Assets/overlay/battle.png?raw=true" alt="A battle on the overlay, the viewer's fleet against the broadcaster's" width="100%">
+</p>
 
 ---
 
