@@ -24,6 +24,15 @@ All notable changes to this project are documented here.
 - **Two more custom triggers.** `BSG: Free Game Start` and `BSG: Free Game End` fire whenever Free game is switched
   that way.
 
+### 🪟 Settings window
+
+- **The settings action is UIFramework's stub 0.2.0.** When the game action hangs, the settings window waits 30
+  seconds for its answer, then carries on and can be closed; before, it waited for good. A game that has not
+  described itself for a minute no longer locks the settings until Streamer.bot restarts: the next run opens the
+  window.
+- The host block is UIFramework's current one (0.10.0). It names every type in full, so it no longer depends on the
+  action's `using` lines, and it can declare a tour of the window. Nothing changes in the window.
+
 ## [2.1.0] — Unreleased
 
 ### 🔔 For your own actions
