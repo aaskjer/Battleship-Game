@@ -45,6 +45,16 @@ actions can listen to `BSG: Free Game Start` and `BSG: Free Game End`. An action
 with an Execute C# Method on `StartFreeGame` or `EndFreeGame` of the game action. A battle already under way
 goes on as it started.
 
+### Can one of my own actions start the chat's battle?
+Yes, from v2.4.0: add an **Execute C# Method** sub-action to any action, pick the `Battleship Game` action's
+code and the method `StartChatBattle`. A hotkey, a Stream Deck button, a raid or a channel point reward of your
+own then starts Chat vs the Admiral, the battle everybody takes part in, with no cooldown. Only this mode is
+started this way; solo battles and duels stay with their commands. The optional argument `battleshipPlatform`
+(`twitch`, `youtube` or `kick`) names the chat the battle is announced in; without it that is the chat the event
+came from, or Twitch. Afterwards `battleshipStarted` says whether a battle began. While another battle runs, or
+with the mode switched off on the Modes page, nothing starts, nothing is said in chat and the method returns
+false, which stops the rest of your action.
+
 ### Why do I lose points during the battle rather than at the end?
 So that leaving early cannot save you anything. If losses only landed at the end, the correct play
 would be to walk away the moment a battle turned — which is not much of a game. Settling as it happens
