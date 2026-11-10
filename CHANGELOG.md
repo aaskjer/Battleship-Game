@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented here.
 
+## [2.4.0] - 2026-11-10
+
+### Added
+
+- **`StartChatBattle` for your own actions.** An Execute C# Method sub-action on the game action starts Chat vs
+  the Admiral, the battle everybody takes part in, from any action: a hotkey, a Stream Deck button, a raid. The
+  optional argument `battleshipPlatform` names the chat it is announced in, and `battleshipStarted` says whether a
+  battle began. No cooldown applies; while another battle runs, nothing starts and chat hears nothing.
+
 ## [2.3.0] - 2026-11-08
 
 ### Added
