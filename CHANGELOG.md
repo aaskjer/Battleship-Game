@@ -8,6 +8,10 @@ All notable changes to this project are documented here.
 
 - **aaskjer on Twitch** is back among the links of the About page.
 
+### Removed
+
+- **The About page's Discord link.** It led to Blackjack's post on the Streamer.bot Discord; Battleship has none.
+
 ### Changed
 
 - **The update question says when Streamer.bot needs a restart.** A newer UIFramework can be used at once only
