@@ -56,11 +56,13 @@ Twitch, YouTube and Kick all play, and every reply goes to the chat the command 
 Open the **[BG] - .Settings** action, right-click **Test** under **Triggers** and choose **Test Trigger**. Everything is configured there; the pages sit in the rail on the left — Game, Fleet, Modes, Overlay, Clicks, Access, Messages, Stats, Log, How to play and About (Ctrl+1 to Ctrl+9 for the first nine).
 
 The first time, a small dialog asks whether to download `UIFramework.dll` — the settings window itself, shared by
-all of these chat games and kept at [aaskjer/UIFramework-Streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot).
-**Yes** fetches it (about 200 KB, checked against its published hash) into `UIFramework\lib\<version>\` next to
-Streamer.bot and opens the window. **No** opens that folder instead, for when you would rather drop the file in by
-hand from the [releases](https://github.com/aaskjer/UIFramework-Streamer.bot/releases). When a newer window is
-released the same dialog comes back once; **Cancel** skips that version.
+all of these chat games and kept at
+[aaskjer/UIFramework-Streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot). **Yes** fetches it (about
+200 KB, checked against its published hash) into `UIFramework\lib\<version>\` next to Streamer.bot and opens the
+window. **No** opens that folder instead, for when you would rather drop the file in by hand from the
+[releases](https://github.com/aaskjer/UIFramework-Streamer.bot/releases). When a newer window is released a dialog
+offers it: **No** skips that version, **Cancel** asks again at the next open. The dialog also says whether
+Streamer.bot has to be restarted for the new window.
 
 Hover over an option for a tooltip with the details. **Save** or Ctrl+S keeps your changes, **Save & Exit** also closes the window. The buttons at the bottom left switch between dark and light, reset everything or only the page in front, and open the customise mode: rename, reorder, hide or move pages and fields by drag and drop or from their context menu, pick an accent colour, and the window keeps that layout in `uiframework.layout.json` next to the settings — through every update of the game.
 
