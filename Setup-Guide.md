@@ -106,7 +106,7 @@ Lets the player whose battle is on screen fire by clicking a square in enemy wat
 4. If you added the browser source by hand or resized it, make it cover the whole canvas: set its width and height to your canvas size, then right-click it ▸ **Transform ▸ Fit to screen**. Or enter where it sits on the Clicks page.
 5. Check it: switch on **Show every click on the overlay**, save, then while live open your channel in a browser and click around the video. Each marker should land under the pointer, and the box in the corner says whether Heat and Streamer.bot are connected. Switch it off afterwards — viewers see it too.
 
-Players just click: the first click on enemy waters in a player's battle is taken as theirs for that battle. Heat sends nearly every click anonymously, so this is how the game tells whose clicks are whose. If someone else's click got in first, the player clicks once and types `!fire link` in chat — that link is remembered for later battles. *The first click in a player's battle takes control* on the Clicks page switches the automatic part off.
+Players just click: the first click on enemy waters in a player's battle is taken as theirs for that battle. Heat sends nearly every click anonymously, so this is how the game tells whose clicks are whose. If someone else's click got in first, the player clicks once and types `!fire link` in chat — that link is remembered for later battles. **First click takes control** on the Clicks page switches the automatic part off.
 
 Optional: **Add to OBS** under *Heat's click markers* on the same page puts Heat's own Markers overlay — a marker where each viewer last clicked — into your Battleship scene, so everyone watching sees the clicks land. Click to Fire works without it.
 
