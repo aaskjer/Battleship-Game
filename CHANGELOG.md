@@ -2,6 +2,93 @@
 
 All notable changes to this project are documented here.
 
+## [2.4.2] - 2026-11-15
+
+### Added
+
+- **aaskjer on Twitch** is back among the links of the About page.
+- **The settings window in French and Brazilian Portuguese**, beside English, German and Spanish. Battleship's own
+  settings are labelled in English and German; the other three show them in English.
+
+### Removed
+
+- **The About page's Discord link.** It led to Blackjack's post on the Streamer.bot Discord; Battleship has none.
+
+### Changed
+
+- **The update question says when Streamer.bot needs a restart.** A newer UIFramework can be used at once only
+  while none is running in your Streamer.bot; otherwise it takes effect after a restart. The dialog now says which
+  of the two it is, and after such a download a note says it again: restart when it suits you, everything goes on
+  as before until then.
+- **Closing the update question means "not now".** *Yes* takes the new UIFramework, *No* skips that version, and
+  *Cancel*, the X and Esc ask again at the next open. Closing the dialog used to skip the version for good.
+- **A skipped version is skipped in every game.** It is kept once, in `UIFramework\loader.json` beside
+  Streamer.bot, and so is `"autoUpdate": false`. What a game's `uiframework.layout.json` holds is still read.
+- The settings action is 0.3.2, the host block UIFramework 2.0.0's. Nothing in your settings changes; the window
+  offers UIFramework 2.0.0 on its next open.
+- **The `!bstats` and `!ballstats` replies are on the Messages page**, under Stats: *Stats reply*, *Stats reply in
+  Free game* and *Leaderboard*. The default reply is the old one without the flawless wins, best win and current
+  streak, which `{flawless}`, `{bestWin}` and `{streak}` add back.
+- **In Free game `!ballstats` ranks by ships sunk**, as no points are won or lost, and `!bstats` leaves out the net.
+- The overlay is version 18; an older copy is replaced on the next command and kept as a `.bak`.
+
+### Fixed
+
+- **A download GitHub does not deliver, or one that breaks off, is tried three times** before the settings action
+  gives up.
+- **The game hears of every save.** When the game action was busy at that moment, the save passed it by, and the
+  overlay and Click to Fire were not brought up to date. The save is now sent again, three tries in all, and a note
+  beside the window says if it still did not arrive. A command in the moment a save is written reads the saved
+  settings, not the defaults.
+- **A save keeps what changed while the game checked it.** A preset pressed meanwhile was lost although the window
+  said "Saved"; it now counts as unsaved.
+- **The update notice** takes an older UIFramework when the newest one is damaged, and no longer names a UIFramework
+  release you skipped with *No* or while the release check is off.
+- **Fire with sample values** on the Help page no longer freezes the window while the game is busy, and says why no
+  answer came.
+- **The Log page's folder button** opens the log folder beside Streamer.bot, also after an export elsewhere, and
+  battles logged in the same second show newest first.
+- **No answer from the game shows as no answer.** A Try button said "done" and a table showed as empty when the
+  game action did not answer.
+- **A late answer is not taken for the next one.** Every request to the game has a variable of its own.
+- **The settings window opens with a too-new UIFramework installed.** As Streamer.bot started, the game loaded the
+  newest UIFramework, also one that needs a newer settings action, and the window then stayed shut until a
+  restart. It now loads the newest one its settings action fits. When another game has such a UIFramework running
+  already, opening the settings says so in one message, asking to update this game, instead of advising to delete that UIFramework's folder.
+- **Points go to the right variable with Currency Core or LOYALTY POINTS.** *Try the demo*, *Show a sample round*
+  and *Add to OBS* in the settings window, and a chat command arriving just as a battle paid out, could send later
+  refunds and payouts to the box's variable (`points`). LOYALTY POINTS is now found the way the window finds it.
+- **Switching Free game over a damaged settings file keeps your settings.** It wrote a file holding nothing but
+  Free game, over the good backup; now the switch goes into the backup and the damaged file is kept as `.broken`.
+- **`!fire link` cannot take over somebody else's clicks.** In the chat's battle and in a duel, the one clicker it
+  linked could be another viewer, even one of the other side, whose clicks then counted for the wrong person in
+  every later battle. A click from a logged-out viewer, whose id changes with every page load, is linked for that
+  battle only, and an old one no longer keeps the first click from taking control.
+- **Click to Fire works after a restart before anyone types a command.** A channel-point reward or a save that came
+  first handed the overlay an empty action, and every click failed.
+- **The overlay no longer sticks on a finished battle.** Two writes at once could fail, or an older state land
+  after a newer one and leave the next battle's clicks unanswered.
+- **A click uses up a viewer's vote only when it was sent**, on a square still open. **The countdown ring keeps
+  time** after a reload or a scene switch. **The Heat file read mid-write** no longer drops both connections.
+- **A vote cast while the round is being counted is refused**, instead of drawn on the overlay and then wiped. A
+  viewer who voted by click and by `!fire` and then linked keeps one ballot.
+- **Two duel commands of one viewer at the same moment** no longer create points.
+- **After a moderator's stop nothing more is charged**, also when a shot was still being resolved.
+- **A command in the moment before the boards are dealt** no longer throws an error.
+- **The automatic leaderboard reset runs before a battle is recorded**, not only when somebody types `!bstats`,
+  which cleared the new period's first battles with the old ones. Switching it on, or between weekly and monthly,
+  clears nothing. Weeks follow ISO 8601, so New Year's Day no longer starts a second week. A reset of everything
+  no longer restarts the daily winnings cap.
+- **`!ballstats` lists a player who broke even**, and answers in Free game. **`!bstats` names the points** as the
+  game does with Currency Core or LOYALTY POINTS. A Stats message left empty sends nothing.
+- **The Admiral keeps track of a damaged ship** when ships touch.
+- **Add to OBS** finds a scene whose name differs only in case, and says so when OBS created nothing.
+- **The Log page's Result filter** offers what the log holds: NO-SHOW and STARTED, not four values never written.
+- **`battleCurrency` in the custom triggers** is empty for the chat's battle and for a battle begun in Free game.
+- **The log file's name** uses the Gregorian calendar on every system.
+- **The import precompiles the game action** again, so the update notice, the custom triggers and the overlay's
+  cleanup run as Streamer.bot starts. Each action's comment names the version again.
+
 ## [2.4.1] - 2026-11-12
 
 ### Fixed
@@ -42,7 +129,7 @@ All notable changes to this project are documented here.
   application start, so the notice starts with Streamer.bot.
 - The host block is UIFramework 1.4.0's; the settings window offers the newest UIFramework on its next open.
 
-## [2.2.0] — Unreleased
+## [2.2.0] - 2026-11-07
 
 ### Added
 
@@ -81,7 +168,9 @@ All notable changes to this project are documented here.
 - The host block is UIFramework's current one (1.0.0). It names every type in full, so it no longer depends on the
   action's `using` lines, and it can declare a tour of the window. Nothing changes in the window.
 
-## [2.1.0] — Unreleased
+## [2.1.0] - 2026-11-05
+
+No release of its own: 2.1.0 reached GitHub together with 2.2.0.
 
 ### 🔔 For your own actions
 
