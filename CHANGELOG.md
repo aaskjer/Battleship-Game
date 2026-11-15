@@ -7,6 +7,8 @@ All notable changes to this project are documented here.
 ### Added
 
 - **aaskjer on Twitch** is back among the links of the About page.
+- **The settings window in French and Brazilian Portuguese**, beside English, German and Spanish. Battleship's own
+  settings are labelled in English and German; the other three show them in English.
 
 ### Removed
 
@@ -22,7 +24,8 @@ All notable changes to this project are documented here.
   *Cancel*, the X and Esc ask again at the next open. Closing the dialog used to skip the version for good.
 - **A skipped version is skipped in every game.** It is kept once, in `UIFramework\loader.json` beside
   Streamer.bot, and so is `"autoUpdate": false`. What a game's `uiframework.layout.json` holds is still read.
-- The settings action is 0.3.1, the host block UIFramework 1.9.0's. Nothing in your settings changes.
+- The settings action is 0.3.2, the host block UIFramework 2.0.0's. Nothing in your settings changes; the window
+  offers UIFramework 2.0.0 on its next open.
 - **The `!bstats` and `!ballstats` replies are on the Messages page**, under Stats: *Stats reply*, *Stats reply in
   Free game* and *Leaderboard*. The default reply is the old one without the flawless wins, best win and current
   streak, which `{flawless}`, `{bestWin}` and `{streak}` add back.
@@ -31,7 +34,20 @@ All notable changes to this project are documented here.
 
 ### Fixed
 
-- **A download GitHub does not deliver is tried three times** before the settings action gives up.
+- **A download GitHub does not deliver, or one that breaks off, is tried three times** before the settings action
+  gives up.
+- **The game hears of every save.** When the game action was busy at that moment, the save passed it by, and the
+  overlay and Click to Fire were not brought up to date. The save is now sent again, three tries in all, and a note
+  beside the window says if it still did not arrive. A command in the moment a save is written reads the saved
+  settings, not the defaults.
+- **A save keeps what changed while the game checked it.** A preset pressed meanwhile was lost although the window
+  said "Saved"; it now counts as unsaved.
+- **The update notice** takes an older UIFramework when the newest one is damaged, and no longer names a UIFramework
+  release you skipped with *No* or while the release check is off.
+- **Fire with sample values** on the Help page no longer freezes the window while the game is busy, and says why no
+  answer came.
+- **The Log page's folder button** opens the log folder beside Streamer.bot, also after an export elsewhere, and
+  battles logged in the same second show newest first.
 - **No answer from the game shows as no answer.** A Try button said "done" and a table showed as empty when the
   game action did not answer.
 - **A late answer is not taken for the next one.** Every request to the game has a variable of its own.
